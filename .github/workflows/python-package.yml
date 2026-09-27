@@ -1,10 +1,10 @@
 name: Python package
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     tags: '*'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
     # Example manual run:
     # gh workflow run python-package.yml -f "python_versions=['3.15.0-rc.2']"

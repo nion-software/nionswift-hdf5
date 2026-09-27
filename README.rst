@@ -24,4 +24,4 @@ This Nion Swift plug-in is comprised of libraries and UI's useful for processing
 More Information
 ----------------
 
-- `Changelog <https://github.com/nion-software/nionswift-hdf5/blob/master/CHANGES.rst>`_
+- `Changelog <https://github.com/nion-software/nionswift-hdf5/blob/main/CHANGES.rst>`_

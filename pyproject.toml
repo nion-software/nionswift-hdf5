@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nionswift-hdf5"
+version = "0.1.0"
+authors = [
+    { name = "Nion Software" }
+]
+description = "Library and UI for processing with Nion Swift."
+readme = "README.rst"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14"
+]
+urls = { "Homepage" = "https://github.com/nion-software/nionswift-hdf5" }
+dependencies = [
+    "nionswift>=16.18,<17.0",
+    "hdf5plugin"
+]
+
+[tool.setuptools.packages.find]
+include = [
+    "nion",
+    "nion.hdf5",
+    "nion.hdf5.test",
+    "nionswift_plugin",
+    "nionswift_plugin.hdf5_ui",
+]
+
+[tool.setuptools.package-data]
+"nion.hdf5" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "nion/hdf5/test"
+]

@@ -41,3 +41,9 @@ include = [
 testpaths = [
     "nion/hdf5/test"
 ]
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = "silent"
+strict = true
+packages = ["nion.hdf5", "nionswift_plugin.hdf5_ui"]

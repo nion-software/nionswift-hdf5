@@ -1,10 +1,10 @@
 Nion Swift HDF5 Plug-in
-======================
+=======================
 
 by Nion Software
 
-A Nion Swift plug-in for Processing (used in Nion Swift)
---------------------------------------------------------
+A Nion Swift plug-in for HDF5 LZ4 compressed export (used in Nion Swift)
+------------------------------------------------------------------------
 This Nion Swift plug-in is comprised of libraries and UI's useful for processing.
 
 .. start-badges

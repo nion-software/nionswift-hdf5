@@ -23,14 +23,17 @@ PersistentDictType = typing.Dict[str, typing.Any]
 
 
 def _create_dataset(data_group: typing.Any, dataset_id: str, data: numpy.typing.NDArray[typing.Any], filter: h5py.filters.FilterRefBase | None = None) -> typing.Any:
-    chunks: tuple[int, ...] | None | bool = getattr(data, "chunks", True)
+    # the source data may be an h5py Dataset (lazily read from another file) or a plain numpy array.
+    # only a chunked source dataset supports iter_chunks; an unchunked (contiguous) one raises TypeError.
+    source_chunks: tuple[int, ...] | None = getattr(data, "chunks", None)
     data_shape = data.shape
 
-    # create the dataset, preallocate space.
+    # create the dataset, preallocate space; reuse the source chunking if known, otherwise let h5py choose.
+    chunks: tuple[int, ...] | bool = source_chunks if source_chunks else True
     ds = data_group.create_dataset(dataset_id, shape=data_shape, dtype=data.dtype, compression=filter, chunks=chunks)
 
-    if callable(getattr(data, "iter_chunks", None)):
-        # if the data has an iter_chunks method, use it to write the data in chunks.
+    if source_chunks and callable(getattr(data, "iter_chunks", None)):
+        # if the source data is chunked, use its iter_chunks method to write the data in chunks.
         for selection in getattr(data, "iter_chunks")():
             ds[selection] = data[selection]
         return ds

@@ -15,8 +15,8 @@ This Nion Swift plug-in is comprised of libraries and UI's useful for processing
     * - package
       - |version|
 
-.. |version| image:: https://img.shields.io/pypi/v/nion-software-nionswift-hdf5.svg
-   :target: https://pypi.org/project/nion-software-nionswift-hdf5/
+.. |version| image:: https://img.shields.io/pypi/v/nionswift-hdf5.svg
+   :target: https://pypi.org/project/nionswift-hdf5/
    :alt: Latest PyPI version
 
 .. end-badges
